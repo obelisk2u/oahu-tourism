@@ -6,7 +6,6 @@ library(forcats)
 library(leaflet)
 
 source("tourism.R")
-tourist_plot()
 
 ui <- navbarPage("O'Ahu",
                  tags$style(
@@ -27,8 +26,9 @@ ui <- navbarPage("O'Ahu",
                     ),
                  
                  tabPanel("Tourism", 
-                    h3("Welcome to Page 2"),
+                    h3("O'Ahu Tourism"),
                     plotOutput("myplot"),
+                    plotOutput("myplot2"),
                     p("This is the content of the second page.")
                     ),
                  
@@ -49,11 +49,8 @@ server <- function(input, output) {
       addMarkers(lng = -157.98024, lat = 21.35118, popup = "Pearl Harbor")
   })
   
-  output$myplot <- renderPlot({
-    ggplot(mtcars, aes(x = wt, y = mpg)) +
-      geom_point() +
-      ggtitle("Scatter Plot of MPG vs Weight")
-  })
+  output$myplot <- renderPlot({tourist_plot(0)})
+  output$myplot2 <- renderPlot({tourist_plot(1)})
 }
 
 # Run the Shiny app
