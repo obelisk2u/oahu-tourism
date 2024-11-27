@@ -5,6 +5,9 @@ library(tidyverse)
 library(forcats)
 library(leaflet)
 
+source("tourism.R")
+tourist_plot()
+
 ui <- navbarPage("O'Ahu",
                  tags$style(
                    HTML(
