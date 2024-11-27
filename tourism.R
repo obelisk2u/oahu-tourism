@@ -1,13 +1,9 @@
-```{r}
 library(dplyr)
 library(readxl)
 library(tidyr)
 library(ggplot2)
 library(patchwork)
-```
-bu-rstudio-connect.bu.edu
-Read data
-```{r}
+
 #years interested
 years <- 2021:2014
 years <- years[!years %in% c(2017)]
@@ -48,11 +44,7 @@ df <- as.data.frame(sapply(df, as.integer))
 years <- 2023:2008
 years <- years[!years %in% c(2017, 2022)]
 df <- cbind(years, df)
-```
 
-
-Make some plots
-```{r}
 df_longer <- pivot_longer(df, cols = month.name, names_to = "Month", values_to = "Value")
 df_longer$Month <- factor(df_longer$Month, levels = month.name)
 
@@ -64,15 +56,10 @@ every_month <- ggplot(df_longer, aes(x = Month, y = Value, group = years, color 
   labs(x = "Month", y = "Value", title = "O'ahu Visitors Monthly by Year", color = "Year") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-df_july <- df_longer |> filter(Month == "July")
-
-july_plot <- ggplot(df_july, aes(x = years, y = Value)) +
-  geom_line() +
-  geom_point() +
-  labs(x = "Year", y = "O'ahu Visitors", title = "July Time Series Over Years") +
-  theme_minimal()
-
-every_month
-july_plot
-```
-
+# df_july <- df_longer |> filter(Month == "July")
+# 
+# july_plot <- ggplot(df_july, aes(x = years, y = Value)) +
+#   geom_line() +
+#   geom_point() +
+#   labs(x = "Year", y = "O'ahu Visitors", title = "July Time Series Over Years") +
+#   theme_minimal()
