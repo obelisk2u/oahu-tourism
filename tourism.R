@@ -4,7 +4,7 @@ library(tidyr)
 library(ggplot2)
 library(patchwork)
 
-tourist_plot <- function(x){
+tourist_plot <- function(){
   #years interested
   years <- 2021:2014
   years <- years[!years %in% c(2017)]
@@ -49,23 +49,38 @@ tourist_plot <- function(x){
   df_longer <- pivot_longer(df, cols = month.name, names_to = "Month", values_to = "Value")
   df_longer$Month <- factor(df_longer$Month, levels = month.name)
   
-  if(x == 0){
-    every_month <- ggplot(df_longer, aes(x = Month, y = Value, group = years, color = as.factor(years))) +
-      geom_line() +
-      geom_point() +
-      scale_y_continuous() +
-      labs(x = "Month", y = "Value", title = "O'ahu Visitors Monthly by Year", color = "Year") +
-      theme(axis.text.x = element_text(angle = 45, hjust = 1))
-    return(every_month)
-  }else if(x == 1){
-    df_july <- df_longer |> filter(Month == "July")
+  every_month <- ggplot(df_longer, aes(x = Month, y = Value, group = years, color = as.factor(years))) +
+    geom_line() +
+    geom_point() +
+    scale_y_continuous() +
+    labs(x = "Month", y = "Value", title = "O'ahu Visitors Monthly by Year", color = "Year") +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  
+  df_july <- df_longer |> filter(Month == "July")
+  july_plot <- ggplot(df_july, aes(x = years, y = Value)) +
+    geom_line() +
+    geom_point() +
+    labs(x = "Year", y = "O'ahu Visitors", title = "July Time Series Over Years") +
+    theme_minimal()
 
-    july_plot <- ggplot(df_july, aes(x = years, y = Value)) +
-      geom_line() +
-      geom_point() +
-      labs(x = "Year", y = "O'ahu Visitors", title = "July Time Series Over Years") +
-      theme_minimal()
-    return(july_plot)
-  }
+  combined <- july_plot + every_month
+  return(combined)
+  # if(x == 0){
+  #   every_month <- ggplot(df_longer, aes(x = Month, y = Value, group = years, color = as.factor(years))) +
+  #     geom_line() +
+  #     geom_point() +
+  #     scale_y_continuous() +
+  #     labs(x = "Month", y = "Value", title = "O'ahu Visitors Monthly by Year", color = "Year") +
+  #     theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  #   return(every_month)
+  # }else if(x == 1){
+  #   df_july <- df_longer |> filter(Month == "July")
+  #   july_plot <- ggplot(df_july, aes(x = years, y = Value)) +
+  #     geom_line() +
+  #     geom_point() +
+  #     labs(x = "Year", y = "O'ahu Visitors", title = "July Time Series Over Years") +
+  #     theme_minimal()
+  #   return(july_plot)
+  # }
 }
 
