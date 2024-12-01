@@ -8,6 +8,9 @@ library(leaflet)
 source("tourism.R")
 source("unemployment.R")
 
+
+#bu-rstudio-connect.bu.edu
+
 ui <- navbarPage("O'Ahu",
    tags$style(
      HTML(

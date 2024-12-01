@@ -58,29 +58,12 @@ tourist_plot <- function(){
   
   df_july <- df_longer |> filter(Month == "July")
   july_plot <- ggplot(df_july, aes(x = years, y = Value)) +
-    geom_line() +
+    geom_line(color ="blue") +
     geom_point() +
-    labs(x = "Year", y = "O'ahu Visitors", title = "July Time Series Over Years") +
+    labs(x = "Year", y = "O'ahu Visitors", title = "O'ahu Visitors in July (2008-2023)") +
     theme_minimal()
 
   combined <- july_plot + every_month
   return(combined)
-  # if(x == 0){
-  #   every_month <- ggplot(df_longer, aes(x = Month, y = Value, group = years, color = as.factor(years))) +
-  #     geom_line() +
-  #     geom_point() +
-  #     scale_y_continuous() +
-  #     labs(x = "Month", y = "Value", title = "O'ahu Visitors Monthly by Year", color = "Year") +
-  #     theme(axis.text.x = element_text(angle = 45, hjust = 1))
-  #   return(every_month)
-  # }else if(x == 1){
-  #   df_july <- df_longer |> filter(Month == "July")
-  #   july_plot <- ggplot(df_july, aes(x = years, y = Value)) +
-  #     geom_line() +
-  #     geom_point() +
-  #     labs(x = "Year", y = "O'ahu Visitors", title = "July Time Series Over Years") +
-  #     theme_minimal()
-  #   return(july_plot)
-  # }
 }
 
