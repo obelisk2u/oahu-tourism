@@ -18,3 +18,10 @@ To run the Shiny app on your local machine:
 2. Open the R project or RStudio and set the working directory to the cloned folder.
 
 3. Run app.R
+
+
+CITATIONS
+https://waterdata.usgs.gov/hi
+https://dbedt.hawaii.gov/economic/unemployment-statistics/
+https://dbedt.hawaii.gov/visitor/tourism/
+https://chatgpt.com/
