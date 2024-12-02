@@ -14,11 +14,15 @@ plot_unemployment <- function() {
     mutate(Value = as.numeric(Value)) |>
     mutate(Date = seq(as.Date("1990-01-01"), as.Date("2023-12-01"), by = "month"))
   
-  monthly <- ggplot(data, aes(x = Date, y = Value)) +
+  monthly_oahu <- ggplot(data, aes(x = Date, y = Value)) +
     geom_line(color = "blue") +
     labs(title = "O'ahu Unemployment Rate (1990-2023)", x = "Year", y = "Unemployment Rate (%)") +
     ylim(0,20) +
     theme_minimal()
   
-  return(monthly)
+  data <- read_excel("./data/unemployment_us.xlsx")
+  data <- data |>
+    slice(-c(11))
+  
+  return(monthly_oahu)
 }
