@@ -1,0 +1,12 @@
+name: oahuCovid
+title: oahuCovid
+username: jdstout
+account: jdstout
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 13608859
+bundleId: 9530968
+url: https://jdstout.shinyapps.io/oahuCovid/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

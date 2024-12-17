@@ -8,7 +8,7 @@ plot_unemployment <- function() {
   data <- read_excel("./data/unemployment_hono.xls")
   data <- data |>
     slice(-c(1:6, 449:465)) |>
-    select(-c(2:4)) |>
+    dplyr::select(-c(2:4)) |>
     rename(Value = `...5`, Date = HONOLULU) |>
     na.omit() |>
     mutate(Value = as.numeric(Value)) |>

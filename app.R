@@ -1,16 +1,16 @@
 library(shiny)
 library(reactable)
 library(vroom)
-library(tidyverse)
 library(forcats)
 library(leaflet)
+library(rsconnect)
+library(raster)
+library(tidyverse)
 
 source("./scripts/tourism.R")
 source("./scripts/unemployment.R")
 source("./scripts/air_quality.R")
 
-
-#bu-rstudio-connect.bu.edu
 
 ui <- navbarPage("O'Ahu",
    tags$style(
