@@ -72,8 +72,8 @@ ui <- navbarPage("O'Ahu",
       h3("Air Quality"),
       div(
         class = "centered-columns",
-        div("hello"),
-        div("world")
+        div("In 2014, Oahu experienced significant vog (volcanic smog) due to increased emissions from Kīlauea's ongoing eruption, particularly the June 27th lava flow. Trade winds carried sulfur dioxide and fine particulates from the Big Island to Oahu, resulting in hazy conditions and degraded air quality throughout the year."),
+        div("In 2021, the COVID-19 pandemic led to reduced tourism and lower industrial activity, significantly decreasing vehicle emissions and air pollution on Oahu. As a result, Honolulu experienced cleaner air, with fewer pollutants in the atmosphere and improved overall air quality throughout the world")
       ),
       plotOutput("myplot4")
    )
