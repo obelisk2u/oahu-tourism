@@ -7,6 +7,7 @@ library(leaflet)
 
 source("./scripts/tourism.R")
 source("./scripts/unemployment.R")
+source("./scripts/air_quality.R")
 
 
 #bu-rstudio-connect.bu.edu
@@ -48,7 +49,7 @@ ui <- navbarPage("O'Ahu",
        
    
    tabPanel("Tourism", 
-      h3("O'Ahu Tourism"),
+      h3("Tourism"),
       div(
         class = "centered-columns",
         div("The COVID-19 pandemic caused a significant decline in tourism on Oahu as travel restrictions and safety concerns kept visitors away. Businesses reliant on tourism, such as hotels, restaurants, and tour operators, faced financial hardships, leading to layoffs and closures."),
@@ -59,14 +60,23 @@ ui <- navbarPage("O'Ahu",
       ),
    
    tabPanel("Unemployment", 
-      h3("O'ahu Unemployment"),
+      h3("Unemployment"),
       div(
         class = "centered-columns",
         div("The COVID-19 pandemic caused a sharp increase in unemployment on Oahu, largely due to the island's heavy reliance on tourism, which came to a standstill during the early months of the crisis. In April 2020, Oahu's unemployment rate peaked at over 20%, a drastic rise from the pre-pandemic rate of around 2%. "),
         div("While recovery has been gradual, sectors like hospitality and retail have struggled to regain pre-pandemic employment levels, reflecting ongoing economic challenges.")
       ),
       plotOutput("myplot3")
-      )
+      ),
+   tabPanel("Air Quality", 
+      h3("Air Quality"),
+      div(
+        class = "centered-columns",
+        div("hello"),
+        div("world")
+      ),
+      plotOutput("myplot4")
+   )
 )
 
 # Define the server logic
@@ -82,6 +92,7 @@ server <- function(input, output) {
   
   output$myplot <- renderPlot({tourist_plot()})
   output$myplot3 <- renderPlot({plot_unemployment()})
+  output$myplot4 <- renderPlot({quality_plot()})
 }
 
 # Run the Shiny app

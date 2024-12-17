@@ -20,8 +20,9 @@ To run the Shiny app on your local machine:
 3. Run app.R
 
 
-CITATIONS
+Data Sources
 https://waterdata.usgs.gov/hi
 https://dbedt.hawaii.gov/economic/unemployment-statistics/
 https://dbedt.hawaii.gov/visitor/tourism/
 https://chatgpt.com/
+https://www.epa.gov/outdoor-air-quality-data/air-quality-index-report
